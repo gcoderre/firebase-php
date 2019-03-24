@@ -54,6 +54,14 @@ class ApiClient
         return $this->request('setAccountInfo', $request);
     }
 
+    public function createSessionCookie(string $idToken, int $validDuration = 86400): ResponseInterface
+    {
+        return $this->request('createSessionCookie', [
+            'idToken' => $idToken,
+            'validDuration' => $validDuration
+        ]);
+    }
+
     /**
      * @deprecated 4.2.0
      * @see ApiClient::createUser()
